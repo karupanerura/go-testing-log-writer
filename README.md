@@ -1,8 +1,11 @@
 # go-testing-log-writer
 
---
-    import tlogw "github.com/karupanerura/go-testing-log-writer"
+[![Actions Status](https://github.com/karupanerura/go-testing-log-writer/workflows/test/badge.svg)](https://github.com/karupanerura/go-testing-log-writer/actions)
+[![codecov](https://codecov.io/gh/karupanerura/go-testing-log-writer/branch/master/graph/badge.svg)](https://codecov.io/gh/karupanerura/go-testing-log-writer)
+[![GoDoc](https://godoc.org/github.com/karupanerura/go-testing-log-writer?status.svg)](http://godoc.org/github.com/karupanerura/go-testing-log-writer)
 
+ --
+    import tlogw "github.com/karupanerura/go-testing-log-writer"
 
 ## Usage
 
@@ -18,7 +21,7 @@ TestingLogWriter provides io.Writer interface for (*testing.T).Log
 #### func  NewTestingLogWriter
 
 ```go
-func NewTestingLogWriter(t *testing.T) *TestingLogWriter
+func NewTestingLogWriter(t testing.TB) *TestingLogWriter
 ```
 NewTestingLogWriter creates a new TestingLogWriter instance.
 

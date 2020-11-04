@@ -17,4 +17,7 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.perl }}
-      - run: go test -race
+      - run: go test -race -coverprofile=coverage.out -covermode=atomic
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage.out

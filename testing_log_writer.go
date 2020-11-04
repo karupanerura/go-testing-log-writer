@@ -17,7 +17,7 @@ type testingLogger interface {
 }
 
 // NewTestingLogWriter creates a new TestingLogWriter instance.
-func NewTestingLogWriter(t *testing.T) *TestingLogWriter {
+func NewTestingLogWriter(t testing.TB) *TestingLogWriter {
 	return &TestingLogWriter{t: t}
 }
 
