@@ -2,6 +2,7 @@ package tlogw_test
 
 import (
 	"fmt"
+	"io"
 	"testing"
 
 	tlogw "github.com/karupanerura/go-testing-log-writer"
@@ -15,9 +16,13 @@ func (t *testingTBImpl) Log(args ...interface{}) {
 	fmt.Print(args...)
 }
 
-func ExampleLog() {
+func ExampleNewTestingLogWriter() {
 	w := tlogw.NewTestingLogWriter(t)
-	w.Write([]byte("testing "))
-	w.WriteString("log!\n")
+	io.WriteString(w, "testing log!\n")
 	// Output: testing log!
+}
+
+func TestNew(t *testing.T) {
+	w := tlogw.NewTestingLogWriter(t)
+	w.Write([]byte("successfully create a new log writer!\n"))
 }
