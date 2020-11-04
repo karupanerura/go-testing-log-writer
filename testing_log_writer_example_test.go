@@ -16,7 +16,7 @@ func (t *testingTBImpl) Log(args ...interface{}) {
 	fmt.Print(args...) // emulate (*testing.T).Log
 }
 
-func ExampleNewTestingLogWriter() {
+func Example() {
 	w := tlogw.NewTestingLogWriter(t)
 	io.WriteString(w, "testing log!\n")
 	// Output: testing log!
