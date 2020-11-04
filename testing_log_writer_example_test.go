@@ -12,6 +12,8 @@ var t testing.TB = &testingTBImpl{} // emulate *testing.T
 
 type testingTBImpl struct{ *testing.T }
 
+func (t *testingTBImpl) Helper() {} // emulate (*testing.T).Helper
+
 func (t *testingTBImpl) Log(args ...interface{}) {
 	fmt.Print(args...) // emulate (*testing.T).Log
 }

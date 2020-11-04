@@ -13,6 +13,7 @@ type TestingLogWriter struct {
 }
 
 type testingLogger interface {
+	Helper()
 	Log(args ...interface{})
 }
 
@@ -23,11 +24,13 @@ func NewTestingLogWriter(t testing.TB) *TestingLogWriter {
 
 // Write a log to (*testing.T).Log with line buffering.
 func (w *TestingLogWriter) Write(b []byte) (int, error) {
+	w.t.Helper()
 	return w.WriteString(string(b))
 }
 
 // WriteString is for io.WriteString compatibility.
 func (w *TestingLogWriter) WriteString(s string) (int, error) {
+	w.t.Helper()
 	if i := strings.IndexRune(s, '\n'); i == -1 {
 		return w.buf.WriteString(s)
 	} else if i == len(s)-1 {

@@ -19,6 +19,8 @@ type testingLoggerImpl struct {
 	buf bytes.Buffer
 }
 
+func (t *testingLoggerImpl) Helper() {} // emulate (*testing.T).Helper
+
 func (l *testingLoggerImpl) Log(args ...interface{}) {
 	l.buf.WriteString(fmt.Sprint(args...) + "\n") // add \n for suffix to emulate a log line
 }
